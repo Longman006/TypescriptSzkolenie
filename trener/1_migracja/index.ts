@@ -10,9 +10,11 @@ add(1, 2)
 // add({}, '2')
 
 
-class Testowa3{
+class Testowa{
     #ukryte = 123
     static statyczna(){
         throw ' blad!'
     }
 }
+
+Testowa.statyczna()

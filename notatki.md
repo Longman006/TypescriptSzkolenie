@@ -62,13 +62,26 @@ https://semver.org/lang/pl/
 https://semver.npmjs.com/
 
 
-$ npm outdated
+npm outdated
 
 Package  Current  Wanted  Latest  Location             Depended by
 jquery     3.6.4   3.6.4   3.7.1  node_modules/jquery  1_migracja 
 
-npm update -> Wanted
-npm install@latest -> Latest
+npm update > Wanted
+npm install@latest > Latest
 
 npm audit
 found 0 vulnerabilities
+
+# TSC
+
+cd trener/1_migracja/
+tsc index.ts
+tsc --strict index.ts
+tsc --strict --target es2015 index.ts
+tsc --strict --target es2015 --watch index.ts
+
+# Source maps
+
+tsc --target es2015 --source-maps index.ts
+node --enable-source-maps trener/1_migracja/index.js

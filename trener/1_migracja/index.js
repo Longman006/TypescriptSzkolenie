@@ -1,17 +1,19 @@
 "use strict";
-var _Testowa3_ukryte;
+var _Testowa_ukryte;
 const add = (a, b) => {
     return a + b;
 };
 add(1, 2);
 // add(1, '2')
 // add({}, '2')
-class Testowa3 {
+class Testowa {
     constructor() {
-        _Testowa3_ukryte.set(this, 123);
+        _Testowa_ukryte.set(this, 123);
     }
     static statyczna() {
         throw ' blad!';
     }
 }
-_Testowa3_ukryte = new WeakMap();
+_Testowa_ukryte = new WeakMap();
+Testowa.statyczna();
+//# sourceMappingURL=index.js.map
