@@ -1,18 +1,17 @@
-
+import { substract, divide } from './lib.js'
 
 const add = (a: number, b: any) => {
     return a + b
 }
 
-add(1, 2)
+console.log(add(1, 2))
+console.log(substract(3, 2))
+console.log(divide(3, 2))
 
-// add(1, '2')
-// add({}, '2')
 
-
-class Testowa{
+class Testowa {
     #ukryte = 123
-    static statyczna(){
+    static statyczna() {
         throw ' blad!'
     }
 }
