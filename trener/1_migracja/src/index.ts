@@ -11,6 +11,7 @@ process.env; // @types/node
 [].toReversed() // lib: 'Es2023'
 
 // http://caniuse.com/ 
+// https://github.com/zloirock/core-js
   
 React.createElement(123)
 React.placki // Extended declaration!
