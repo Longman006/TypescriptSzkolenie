@@ -1,4 +1,3 @@
-
 # Instalacje 
 https://code.visualstudio.com/download 
 https://nodejs.org/en/download/prebuilt-binaries
@@ -119,3 +118,7 @@ tsc --declaration --emitDeclarationOnly --allowJs  ./src/lib.js
 
 
   Try `npm i --save-dev @types/react` if it exists or add a new declaration (.d.ts) file containing `declare module 'react';
+
+
+# Node JS 
+Cannot find name 'process'. Do you need to install type definitions for node? Try `npm i --save-dev @types/node`

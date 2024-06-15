@@ -2,7 +2,16 @@
 
 import { substract, divide, multiply, showPersonName, placki } from './lib'
 import React from 'react' 
- 
+
+
+// window.location // No 'DOM' in tsconfig lib:[]
+
+process.env; // @types/node
+
+[].toReversed() // lib: 'Es2023'
+
+// http://caniuse.com/ 
+  
 React.createElement(123)
 React.placki // Extended declaration!
 
