@@ -10,32 +10,32 @@ const PlaylistDetails = (props: Props) => {
     description: "Best playlist",
   };
 
-  return <div>
-  {/* .grid.gap-5>.grid.gap-2*3>div.font-semibold{Name}+div{Playlist} */}
+  return (
+    <div>
+      <div
+        className="grid gap-5 mb-5"
+        title={playlist.name}
+        id={`playlist_${playlist.id}`}
+      >
+        {/* {null} {true} {false} {undefined} */}
 
-  <div className="grid gap-5 mb-5">
+        <div className="grid">
+          <div className="font-semibold">Name</div>
+          <div>{playlist.name}</div>
+        </div>
 
-    {/* {'ala ma ' + 'kota ' + playlist.name} */}
-    {null} {true} {false} {undefined}
+        <div className="grid">
+          <div className="font-semibold">Public</div>
+          <div>{playlist.public ? "Yes" : "No"}</div>
+        </div>
 
-    <div className="grid">
-      <div className="font-semibold">Name</div>
-      <div>{playlist.name}</div>
+        <div className="grid">
+          <div className="font-semibold">Description</div>
+          <div>{playlist.description}</div>
+        </div>
+      </div>
     </div>
-
-    <div className="grid">
-      <div className="font-semibold">Public</div>
-      <div>{playlist.public? 'Yes' : 'No'}</div>
-    </div>
-
-    <div className="grid">
-      <div className="font-semibold">Description</div>
-      <div>{playlist.description}</div>
-    </div>
-
-  </div>
-
-  </div>;
+  );
 };
 
 export default PlaylistDetails;
