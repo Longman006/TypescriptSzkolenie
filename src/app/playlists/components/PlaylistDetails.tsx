@@ -6,7 +6,7 @@ const PlaylistDetails = (props: Props) => {
   const playlist = {
     id: "123",
     name: "Playlist 123",
-    public: true,
+    public: false,
     description: "Best playlist",
   };
 
@@ -26,7 +26,13 @@ const PlaylistDetails = (props: Props) => {
 
         <div className="grid">
           <div className="font-semibold">Public</div>
-          <div>{playlist.public ? "Yes" : "No"}</div>
+          <div
+            style={{
+              color: playlist.public ? "red" : "green",
+            }}
+          >
+            {playlist.public ? "Yes" : "No"}
+          </div>
         </div>
 
         <div className="grid">
