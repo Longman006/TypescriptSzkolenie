@@ -69,3 +69,6 @@ jquery     3.6.4   3.6.4   3.7.1  node_modules/jquery  1_migracja
 
 npm update -> Wanted
 npm install@latest -> Latest
+
+npm audit
+found 0 vulnerabilities
