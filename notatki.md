@@ -237,3 +237,22 @@ Installing devDependencies:
 - tailwindcss
 - eslint
 - eslint-config-next
+
+# Extensions
+
+Snippets
+https://marketplace.visualstudio.com/items?itemName=dsznajder.es7-react-js-snippets
+
+Tailwind
+https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss
+
+Quicktype
+https://marketplace.visualstudio.com/items?itemName=quicktype.quicktype
+
+# Tailwind config
+// .vscode\settings.json
+{
+    "tailwindCSS.emmetCompletions": true
+}
+
+
