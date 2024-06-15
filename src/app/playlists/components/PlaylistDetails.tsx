@@ -6,7 +6,7 @@ const PlaylistDetails = (props: Props) => {
   const playlist = {
     id: "123",
     name: "Playlist 123",
-    public: false,
+    public: true,
     description: "Best playlist",
   };
 
@@ -16,20 +16,21 @@ const PlaylistDetails = (props: Props) => {
   <div className="grid gap-5 mb-5">
 
     {/* {'ala ma ' + 'kota ' + playlist.name} */}
+    {null} {true} {false} {undefined}
 
     <div className="grid">
       <div className="font-semibold">Name</div>
-      <div>Playlist abc</div>
+      <div>{playlist.name}</div>
     </div>
 
     <div className="grid">
       <div className="font-semibold">Public</div>
-      <div>Yes</div>
+      <div>{playlist.public? 'Yes' : 'No'}</div>
     </div>
 
     <div className="grid">
       <div className="font-semibold">Description</div>
-      <div>Awesoem Playlist</div>
+      <div>{playlist.description}</div>
     </div>
 
   </div>
