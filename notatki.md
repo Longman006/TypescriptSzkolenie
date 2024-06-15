@@ -50,3 +50,6 @@ https://bitbucket.org/ev45ive/testuj-sii-typescript2.git
 -> Open window
 
 git clone https://bitbucket.org/ev45ive/testuj-sii-typescript2.git
+
+## Package JSON
+npm init -y
