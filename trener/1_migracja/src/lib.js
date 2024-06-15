@@ -1,8 +1,15 @@
+// @ts-check
+
+// JSDoc
+// https://jsdoc.app/
+
 
 /**
- * @typedef Person
- * @extends Object
+ * @typedef Person 
+ * 
  * @property {string} name
+ * @property {string?} id
+ * @property {number | undefined} age
  */
 
 /**
@@ -16,11 +23,35 @@ export function substract(a, b) {
     return a - b
 }
 
+/**
+ * Function Dividing numbers
+ * @param {number} a Divider
+ * @param {number} b Dividee
+ * @returns {number}
+ */
 export function divide(a, b) {
     return a / b
 }
 
-
-function showPersonName(person) {
-    return person.namee
+/**
+ * Shows personal information
+ * @param {Person} person 
+ * @returns 
+ */
+export function showPersonName(person) {
+    // return person.namerr // Error witth @ts-check
+    return person.name
 }
+
+
+// @ts-ignore
+showPersonName({
+    name: 'Placki',
+    age: 18,
+})
+
+// @ts-expect-error
+showPersonName({
+    name: 'Placki',
+    age: 18,
+})
