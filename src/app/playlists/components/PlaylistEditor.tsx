@@ -11,13 +11,16 @@ const playlist: Playlist = {
 };
 
 const PlaylistEditor = (props: Props) => {
+
+  const nameChangeHandler = () => {}
+
   return (
     <div>
       <div className="grid gap-5 mb-5">
         <div className="grid">
           <div className="font-semibold">Name</div>
           <div>
-            <input type="text" className="w-full" defaultValue={playlist.name}/>
+            <input type="text" className="w-full" value={playlist.name} onChange={nameChangeHandler}/>
           </div>
         </div>
         <div className="grid">
