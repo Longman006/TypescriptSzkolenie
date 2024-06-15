@@ -2,8 +2,8 @@
 
 import { substract, divide, multiply, showPersonName, placki } from './lib'
 import React from 'react' 
-
-React.createElement('div')
+ 
+React.createElement(123)
 React.placki // Extended declaration!
 
 
