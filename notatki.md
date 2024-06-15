@@ -161,3 +161,43 @@ Cannot find name 'process'. Do you need to install type definitions for node? Tr
   - tsc --init --target es2022 --outDir ./dist --sourceMap ./src/*.ts
   - tsc --init --target es2022 --outDir ./dist --lib es2022,dom --sourceMap ./src/*.ts
 
+# Webpack
+npx webpack init
+
+Need to install the following packages:
+webpack@5.92.0
+Ok to proceed? (y) y
+
+CLI for webpack must be installed.
+  webpack-cli (https://github.com/webpack/webpack-cli)
+
+We will use "npm" to install the CLI via "npm install -D webpack-cli".
+Do you want to install 'webpack-cli' (yes/no): y
+
+npx webpack init
+
+[webpack-cli] For using this command you need to install: '@webpack-cli/generators' package.
+[webpack-cli] Would you like to install '@webpack-cli/generators' package? (That will run 'npm install -D @webpack-cli/generators') (Y/n) y 
+
+? Which of the following JS solutions do you want to use? Typescript
+? Do you want to use webpack-dev-server? Yes
+? Do you want to simplify the creation of HTML files for your bundle? Yes
+? Do you want to add PWA support? No
+? Which of the following CSS solutions do you want to use? CSS only
+? Will you be using PostCSS in your project? Yes
+? Do you want to extract CSS for every file? Only for Production
+? Do you like to install prettier to format generated configuration? Yes
+? Pick a package manager: npm
+
+```
+{
+  "compilerOptions": {
+    "allowSyntheticDefaultImports": true,
+    "noImplicitAny": true,
+    "module": "es6",
+    "target": "es5",
+    "allowJs": true
+  },
+  "files": ["src/index.ts"]
+}
+```

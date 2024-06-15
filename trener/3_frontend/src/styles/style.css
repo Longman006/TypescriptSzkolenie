@@ -1,0 +1,7 @@
+
+body{
+    background-color: hotpink;
+    min-height: 100vh;
+
+    background-image: url('site-logo.svg');
+}

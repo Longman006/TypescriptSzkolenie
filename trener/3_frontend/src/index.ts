@@ -1,10 +1,10 @@
 
 console.log('Witaj!');
 
-import './style.css';
+import './styles/style.css';
 
 const message = document.getElementById('message');
 
 if (message) {
-    message.innerText = 'Witaj w TypeScript!'
+    message.innerText = 'Witaj w TypeScript !'
 }
