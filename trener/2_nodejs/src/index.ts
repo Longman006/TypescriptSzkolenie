@@ -18,7 +18,7 @@ app.get('/', (req, res) => {
 
     if (req.user) {
 
-        req.user.name
+        // req.session['placki'] // Fix missing types by merging
 
         res.send('<h1>Hello! ' + req.user.name + '</h1>')
     } else
