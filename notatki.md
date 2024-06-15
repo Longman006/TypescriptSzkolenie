@@ -205,7 +205,6 @@ npx webpack init
 # Next
 npx create-next-app@latest
 
-npx create-next-app@latest
 Need to install the following packages:
 create-next-app@14.2.4
 Ok to proceed? (y) y
