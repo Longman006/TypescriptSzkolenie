@@ -1,6 +1,11 @@
 //   /// <reference path="lib.d.ts" />
 
 import { substract, divide, multiply, showPersonName, placki } from './lib'
+import React from 'react' 
+
+React.createElement('div')
+React.placki // Extended declaration!
+
 
 const add = (a: number, b: any) => {
     return a + b

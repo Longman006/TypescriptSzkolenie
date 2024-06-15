@@ -116,3 +116,6 @@ https://marketplace.visualstudio.com/items?itemName=oouo-diogo-perdigao.docthis
 
 # Declaration .d.ts
 tsc --declaration --emitDeclarationOnly --allowJs  ./src/lib.js
+
+
+  Try `npm i --save-dev @types/react` if it exists or add a new declaration (.d.ts) file containing `declare module 'react';
