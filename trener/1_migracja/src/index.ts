@@ -1,6 +1,6 @@
 /// <reference path="types.d.ts" />
 
-import { substract, divide, multiply, showPersonName, placki } from './lib'
+import { substract, divide, multiply, showPersonName, placki } from '../lib/lib'
 import React from 'react' 
 
 
