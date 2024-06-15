@@ -6,8 +6,17 @@ const app = express()
 
 app.use(session({ secret: 'keyboard cat', }))
 
+app.use(req => {
+    if (req.headers['authorization']) {
+        (req as any).user = { name: 'Admin' }
+    }
+})
+
 
 app.get('/', (req, res) => {
+
+    (req as any).user.name 
+
     res.send('<h1>Hello!</h1>')
 })
 
