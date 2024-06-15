@@ -14,7 +14,7 @@ const PlaylistsPage = (props: Props) => {
 
       {/* .grid.grid-cols-2.gap-4 */}
 
-      <div className="grid grid-cols-2 gap-4">
+      <div className="grid grid-cols-2 gap-7">
         <div>
           <PlaylistList />
         </div>
