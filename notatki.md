@@ -122,3 +122,25 @@ tsc --declaration --emitDeclarationOnly --allowJs  ./src/lib.js
 
 # Node JS 
 Cannot find name 'process'. Do you need to install type definitions for node? Try `npm i --save-dev @types/node`
+
+
+- package.json
+  - npm init -y 
+
+- Install
+  - npm i express express-session 
+  - npm i --save-dev @types/express @types/express-session 
+
+- gitignore
+  echo 'node_modules' > .gitignore
+  echo 'dist' > .gitignore
+
+- TypeScript
+  - tsc --init 
+  - tsc --init --target es2022 --outDir ./dist --lib es2022 --sourceMap ./src/*.ts
+
+  - tsc 
+  - tsc --watch
+
+  - package.json scripts + nodemon, concurently, etc..
+
