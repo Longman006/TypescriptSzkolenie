@@ -38,7 +38,13 @@ const PlaylistList = (props: Props) => {
     <div>
       <div className="grid divide-y divide-gray-600">
         {playlists.map((playlist, index) => (
-          <div className="p-5">
+          <div
+            key={playlist.id}
+            className="p-5"
+            onClick={(event) => {
+              console.log(playlist.name);
+            }}
+          >
             {index + 1}. {playlist.name}
           </div>
         ))}
