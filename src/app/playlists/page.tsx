@@ -1,32 +1,30 @@
 // tsrafce
 
-import React from 'react'
-import PlaylistList from './components/PlaylistList'
-import PlaylistEditor from './components/PlaylistEditor'
-import PlaylistDetails from './components/PlaylistDetails'
+import React from "react";
+import PlaylistList from "./components/PlaylistList";
+import PlaylistEditor from "./components/PlaylistEditor";
+import PlaylistDetails from "./components/PlaylistDetails";
 
-type Props = {}
+type Props = {};
 
 const PlaylistsPage = (props: Props) => {
   return (
     <div>
-        PlaylistsPage
+      <h1 className="text-4xl leading-loose">Playlists</h1>
 
-        {/* .grid.grid-cols-2.gap-4 */}
-        
-        <div className="grid grid-cols-2 gap-4">
-            <div>
-                <PlaylistList/>
-            </div>
-            <div>
-                <PlaylistDetails/>
-                <PlaylistEditor/>
-            </div>
+      {/* .grid.grid-cols-2.gap-4 */}
+
+      <div className="grid grid-cols-2 gap-4">
+        <div>
+          <PlaylistList />
         </div>
-        
-
+        <div>
+          <PlaylistDetails />
+          <PlaylistEditor />
+        </div>
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default PlaylistsPage
+export default PlaylistsPage;
