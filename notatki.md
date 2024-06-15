@@ -66,8 +66,8 @@ npm outdated
 Package  Current  Wanted  Latest  Location             Depended by
 jquery     3.6.4   3.6.4   3.7.1  node_modules/jquery  1_migracja 
 
-npm update > Wanted
-npm install@latest > Latest
+npm update >> Wanted
+npm install@latest >> Latest
 
 npm audit
 found 0 vulnerabilities
@@ -123,7 +123,6 @@ tsc --declaration --emitDeclarationOnly --allowJs  ./src/lib.js
 # Node JS 
 Cannot find name 'process'. Do you need to install type definitions for node? Try `npm i --save-dev @types/node`
 
-
 - package.json
   - npm init -y 
 
@@ -132,8 +131,8 @@ Cannot find name 'process'. Do you need to install type definitions for node? Tr
   - npm i --save-dev @types/express @types/express-session 
 
 - gitignore
-  echo 'node_modules' > .gitignore
-  echo 'dist' > .gitignore
+  echo 'node_modules' >> .gitignore
+  echo 'dist' >> .gitignore
 
 - TypeScript
   - tsc --init 
@@ -143,4 +142,22 @@ Cannot find name 'process'. Do you need to install type definitions for node? Tr
   - tsc --watch
 
   - package.json scripts + nodemon, concurently, etc..
+
+
+## Frontend TS
+
+- package.json
+  - npm init -y 
+
+- Install
+  npm i react 
+  npm i -D @types/react 
+
+- gitignore
+  echo 'node_modules' >> .gitignore
+  echo 'dist' >> .gitignore
+
+- TypeScript
+  - tsc --init --target es2022 --outDir ./dist --sourceMap ./src/*.ts
+  - tsc --init --target es2022 --outDir ./dist --lib es2022,dom --sourceMap ./src/*.ts
 
