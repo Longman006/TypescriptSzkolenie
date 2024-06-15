@@ -1,11 +1,16 @@
 // @ts-check
-
+ 
 // JSDoc
 // https://jsdoc.app/
 
+// @ts-ignore
+export function multiply(a, b) {
+    return a * b
+}
+
 
 /**
- * @typedef Person 
+ * @typedef Person  
  * 
  * @property {string} name
  * @property {string?} id
@@ -13,7 +18,7 @@
  */
 
 /**
- * Odejmuje liczby
+ * Odejmuje liczby 
  * 
  * @param {number} a Odjemnik
  * @param {number} b Odjemna
@@ -21,17 +26,17 @@
  */
 export function substract(a, b) {
     return a - b
-}
+}    
 
 /**
- * Function Dividing numbers
+ * Function Dividing numbers 
  * @param {number} a Divider
  * @param {number} b Dividee
  * @returns {number}
  */
 export function divide(a, b) {
     return a / b
-}
+}    
 
 /**
  * Shows personal information
@@ -42,6 +47,7 @@ export function showPersonName(person) {
     // return person.namerr // Error witth @ts-check
     return person.name
 }
+
 
 
 // @ts-ignore

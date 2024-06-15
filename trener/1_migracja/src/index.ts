@@ -1,9 +1,13 @@
-import { substract, divide, showPersonName } from './lib.js'
+//   /// <reference path="lib.d.ts" />
+
+import { substract, divide, multiply, showPersonName, placki } from './lib'
 
 const add = (a: number, b: any) => {
     return a + b
 }
 
+
+multiply(1,3)
 console.log(add(1, 2))
 console.log(substract(3, 2))
 console.log(divide(3, 2))
