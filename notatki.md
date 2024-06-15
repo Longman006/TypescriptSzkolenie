@@ -106,3 +106,9 @@ Created a new tsconfig.json with:
 
 
 You can learn more at https://aka.ms/tsconfig
+
+# JSDoc
+
+https://jsdoc.app/
+
+https://marketplace.visualstudio.com/items?itemName=oouo-diogo-perdigao.docthis
