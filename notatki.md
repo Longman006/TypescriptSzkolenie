@@ -83,5 +83,26 @@ tsc --strict --target es2015 --watch index.ts
 
 # Source maps
 
-tsc --target es2015 --source-maps index.ts
+tsc --target es2015 --sourceMap index.ts
 node --enable-source-maps trener/1_migracja/index.js
+
+tsc --strict --target es2015  --sourceMap  --outDir ./dist --watch index.ts
+
+tsc --strict --target es2015  --sourceMap  --outDir ./dist --watch ./src/**.ts
+
+# TsConfig.json
+
+tsc --init 
+tsc --strict --target es2015  --sourceMap  --outDir ./dist --init ./src/**.ts
+Created a new tsconfig.json with:                                                                                       
+                                                                                                                     TS 
+  target: es6
+  module: commonjs
+  outDir: ./dist
+  strict: true
+  esModuleInterop: true
+  skipLibCheck: true
+  forceConsistentCasingInFileNames: true
+
+
+You can learn more at https://aka.ms/tsconfig
