@@ -38,3 +38,15 @@ npm i -g typescript
 
 tsc -v 
 Version 5.4.5
+
+# GIT 
+
+F1 
+-> Git Clone 
+-> Paste
+https://bitbucket.org/ev45ive/testuj-sii-typescript2.git
+-> Clone from URL 
+-> Select location
+-> Open window
+
+git clone https://bitbucket.org/ev45ive/testuj-sii-typescript2.git
