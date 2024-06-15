@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import { Playlist } from "./Playlist";
 
@@ -25,17 +27,24 @@ const playlists: Playlist[] = [
 ];
 
 const PlaylistList = (props: Props) => {
-  return <div>
-    
-  {/* .grid.divide-y>.p-5*3>{$. Playlist$} */}
-  
-  <div className="grid divide-y divide-gray-600">
-    <div className="p-5">1. Playlist1</div>
-    <div className="p-5">2. Playlist2</div>
-    <div className="p-5">3. Playlist3</div>
-  </div>
 
-  </div>;
+  // const renderPlaylist = (playlist: Playlist, index: number): React.JSX.Element => (
+  //   <div className="p-5">
+  //     {index + 1}. {playlist.name}
+  //   </div>
+  // );
+
+  return (
+    <div>
+      <div className="grid divide-y divide-gray-600">
+        {playlists.map((playlist, index) => (
+          <div className="p-5">
+            {index + 1}. {playlist.name}
+          </div>
+        ))}
+      </div>
+    </div>
+  );
 };
 
 export default PlaylistList;
