@@ -1,4 +1,4 @@
-//   /// <reference path="lib.d.ts" />
+/// <reference path="types.d.ts" />
 
 import { substract, divide, multiply, showPersonName, placki } from './lib'
 import React from 'react' 
