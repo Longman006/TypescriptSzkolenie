@@ -1,15 +1,18 @@
 import React from "react";
+import { Playlist } from "./Playlist";
 
 type Props = {};
 
-const PlaylistDetails = (props: Props) => {
-  const playlist = {
-    id: "123",
-    name: "Playlist 123",
-    public: false,
-    description: "Best playlist",
-  };
+const playlist: Playlist = {
+  id: "123",
+  name: "Playlist 123",
+  public: false,
+  description: "Best playlist",
+};
 
+// type Playlist = typeof playlist;
+
+const PlaylistDetails = (props: Props) => {
   return (
     <div>
       <div
