@@ -18,13 +18,18 @@ const PlaylistEditor = (props: Props) => {
   // const nameChangeHandler: React.ChangeEventHandler<HTMLInputElement> = (event) => { // Hover
 
   /* 
-    Type '(event: 'lewy but') => void' is not assignable to type 'ChangeEventHandler<HTMLInputElement>'.
-      Types of parameters 'event' and 'event' are incompatible.
-        Type 'ChangeEvent<HTMLInputElement>' is not assignable to type '"lewy but"'.ts(2322)
+  Type '(event: 'lewy but') => void' is not assignable to type 'ChangeEventHandler<HTMLInputElement>'.
+  Types of parameters 'event' and 'event' are incompatible.
+  Type 'ChangeEvent<HTMLInputElement>' is not assignable to type '"lewy but"'.ts(2322)
   */
   // const nameChangeHandler = (event: 'lewy but') => {
-  const nameChangeHandler = (event: ChangeEvent<HTMLInputElement>) => {
-    console.log(event.target.value);
+  // const nameChangeHandler = (event: ChangeEvent<HTMLInputElement>) => {
+  //   console.log(event.target.value);
+  // };
+
+  // Extract to constant (with types!) 
+  const nameChangeHandler = (e: React.ChangeEvent<HTMLInputElement>): void => {
+    console.log(e.target.value);
   };
 
   return (
