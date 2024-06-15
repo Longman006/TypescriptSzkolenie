@@ -53,3 +53,19 @@ git clone https://bitbucket.org/ev45ive/testuj-sii-typescript2.git
 
 ## Package JSON
 npm init -y
+
+npm i // package.json + ^updates
+npm ci // package-lock.json - exact! no updates
+
+# Semver
+https://semver.org/lang/pl/ 
+https://semver.npmjs.com/
+
+
+$ npm outdated
+
+Package  Current  Wanted  Latest  Location             Depended by
+jquery     3.6.4   3.6.4   3.7.1  node_modules/jquery  1_migracja 
+
+npm update -> Wanted
+npm install@latest -> Latest
