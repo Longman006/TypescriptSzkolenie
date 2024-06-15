@@ -17,18 +17,18 @@ const PlaylistEditor = (props: Props) => {
         <div className="grid">
           <div className="font-semibold">Name</div>
           <div>
-            <input type="text" className="w-full" />
+            <input type="text" className="w-full" defaultValue={playlist.name}/>
           </div>
         </div>
         <div className="grid">
           <div className="font-semibold">
-            <input type="checkbox" /> Public
+            <input type="checkbox"  defaultChecked={playlist.public} /> Public
           </div>
         </div>
         <div className="grid">
           <div className="font-semibold">Description</div>
           <div>
-            <textarea className="w-full"/>
+            <textarea className="w-full" defaultValue={playlist.description}/>
           </div>
         </div>
       </div>
