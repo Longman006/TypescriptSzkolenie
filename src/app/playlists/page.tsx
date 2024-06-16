@@ -18,8 +18,8 @@ const PlaylistsPage = (props: Props) => {
   const [selected, setSelected] = useState(mockPlaylists[1]);
 
   const selectPlaylistById = (id: string) => {
-    setSelectedId(id);
-    setSelected(playlists.find((p) => p.id === selectedId)!);
+    setSelectedId(id); // '123' in next render!
+    setSelected(playlists.find((p) => p.id === selectedId)!); // '234'
   };
 
   const showDetails = () => {
