@@ -15,18 +15,14 @@ type Props = {};
  * @param draft Playlist
  * @returns Playlsits array
  */
-const updatePlaylist =
-  (draft: Playlist) =>
-  // Action old => new
-  (prevPlaylists: Playlist[]): Playlist[] =>
-    prevPlaylists.map((p) => (p.id == draft.id ? draft : p));
+const updateItemById =
+  <T extends { id: string }>(draft: T) =>
+  (prevPlaylists: T[]): T[] => prevPlaylists.map((p) => (p.id == draft.id ? draft : p));
 
-const insertNewPlaylist =
-  (draft: Playlist) =>
-  (prevState: Playlist[]): Playlist[] =>
-    [...prevState, draft];
+const insertNewItem =
+  <T,>(draft: T) => (prevState: T[]): T[] => [...prevState, draft];
 
-// ------------
+// ------------ //
 
 const PlaylistsPage = (props: Props) => {
   type Modes = "details" | "editor" | "creator";
@@ -51,7 +47,8 @@ const PlaylistsPage = (props: Props) => {
   };
 
   const savePlaylist = (draft: Playlist) => {
-    setPlaylists(updatePlaylist(draft));
+    setPlaylists(updateItemById(draft));
+
     setSelected(draft);
     setMode("details");
   };
@@ -59,7 +56,7 @@ const PlaylistsPage = (props: Props) => {
   const createPlaylist = (draft: Playlist) => {
     draft.id = crypto.randomUUID();
 
-    setPlaylists(insertNewPlaylist(draft));
+    setPlaylists(insertNewItem(draft));
 
     setSelected(draft);
     setSelectedId(draft.id);
