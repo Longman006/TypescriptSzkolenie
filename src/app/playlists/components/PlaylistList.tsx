@@ -11,9 +11,12 @@ type Props = {
 };
 
 const PlaylistList = (props: Props) => {
-  const playlists = props.playlists;
-  const onSelect = props.onSelect;
-  const selectedId = props.selectedId;
+  // const playlists = props.playlists;
+  // const onSelect = props.onSelect;
+  // const selectedId = props.selectedId;
+
+  // Destructuring Props
+  const { playlists, selectedId, onSelect } = props;
 
   return (
     <div>

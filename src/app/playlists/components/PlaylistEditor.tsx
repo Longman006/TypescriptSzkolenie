@@ -3,7 +3,7 @@
 import React, { ChangeEvent, useState } from "react";
 import { Playlist } from "../../core/types/Playlist";
 
-type Props = {};
+type Props = {playlist: Playlist;};
 
 const playlist: Playlist = {
   id: "123",
