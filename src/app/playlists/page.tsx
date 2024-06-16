@@ -18,8 +18,8 @@ const PlaylistsPage = (props: Props) => {
   const [selected, setSelected] = useState(mockPlaylists[1]);
 
   const selectPlaylistById = (id: string) => {
-    setSelectedId(id); // '123' in next render!
-    setSelected(playlists.find((p) => p.id === selectedId)!); // '234'
+    setSelectedId(id);
+    setSelected(playlists.find((p) => p.id === id)!);
   };
 
   const showDetails = () => {
@@ -47,23 +47,7 @@ const PlaylistsPage = (props: Props) => {
         <div>
           {mode === "details" && <PlaylistDetails playlist={selected} />}
 
-          {mode === "details" || <PlaylistEditor playlist={selected} />}
-
-          <div className="flex justify-between">
-            <button
-              className="bg-red-500 text-white px-5 py-2"
-              onClick={showDetails}
-            >
-              Cancel
-            </button>
-
-            <button
-              className="bg-purple-500 text-white px-5 py-2"
-              onClick={showEditor}
-            >
-              Edit
-            </button>
-          </div>
+          {mode === "editor" && <PlaylistEditor playlist={selected} />}
         </div>
       </div>
     </div>

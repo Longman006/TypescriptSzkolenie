@@ -4,7 +4,6 @@ import { Playlist } from "../../core/types/Playlist";
 type Props = { playlist: Playlist };
 
 const PlaylistDetails = ({ playlist }: Props) => {
-
   return (
     <div>
       <div
@@ -34,6 +33,15 @@ const PlaylistDetails = ({ playlist }: Props) => {
           <div className="font-semibold">Description</div>
           <div>{playlist.description}</div>
         </div>
+      </div>
+
+      <div className="flex justify-start">
+        <button
+          className="bg-purple-500 text-white px-5 py-2"
+          onClick={()=>{}}
+        >
+          Edit
+        </button>
       </div>
     </div>
   );
