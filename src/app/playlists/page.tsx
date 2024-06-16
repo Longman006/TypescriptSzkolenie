@@ -35,13 +35,18 @@ const PlaylistsPage = (props: Props) => {
   };
 
   const savePlaylist = (draft: Playlist) => {
+    debugger;
     const index = playlists.findIndex((p) => p.id == draft.id);
+    playlists[index] = draft;
+    setSelected(draft);
     setMode("details");
   };
 
   const createPlaylist = (draft: Playlist) => {
-    draft.id = crypto.randomUUID()
-    
+    draft.id = crypto.randomUUID();
+    playlists[playlists.length] = draft;
+    setSelected(draft);
+    setSelectedId(draft.id)
     setMode("details");
   };
 
