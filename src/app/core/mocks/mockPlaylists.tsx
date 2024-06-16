@@ -1,5 +1,6 @@
-"use client";
-import { Playlist } from "./Playlist";
+import { Playlist } from "../types/Playlist";
+
+ 
 
 export const mockPlaylists: Playlist[] = [
   {

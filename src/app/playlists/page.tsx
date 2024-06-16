@@ -1,6 +1,7 @@
-// tsrafce
+"use client";
 
-import React from "react";
+// tsrafce
+import React, { useState } from "react";
 import PlaylistList from "./components/PlaylistList";
 import PlaylistEditor from "./components/PlaylistEditor";
 import PlaylistDetails from "./components/PlaylistDetails";
@@ -8,6 +9,11 @@ import PlaylistDetails from "./components/PlaylistDetails";
 type Props = {};
 
 const PlaylistsPage = (props: Props) => {
+  const [mode, setMode] = useState("details");
+
+  const showDetails = () => {};
+  const showEditor = () => {};
+
   return (
     <div>
       <h1 className="text-4xl leading-loose">Playlists</h1>
@@ -17,8 +23,16 @@ const PlaylistsPage = (props: Props) => {
           <PlaylistList />
         </div>
         <div>
-          <PlaylistDetails />
-          <PlaylistEditor />
+          {/* {mode === "details" ? <PlaylistDetails /> : <PlaylistEditor />} */}
+
+          {mode === "details" && <PlaylistDetails />}
+
+          {mode === "details" || <PlaylistEditor />}
+
+          <div className="flex justify-between">
+            <button className="bg-red-500 text-white px-5 py-2">Cancel</button>
+            <button className="bg-purple-500 text-white px-5 py-2">Edit</button>
+          </div>
         </div>
       </div>
     </div>
