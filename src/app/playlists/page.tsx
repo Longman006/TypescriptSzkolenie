@@ -14,10 +14,10 @@ const PlaylistsPage = (props: Props) => {
   type Modes = "details" | "editor" | "creator";
   const [mode, setMode] = useState<Modes>("details");
 
-  // const [selected, setSelected] = useState<Playlist | undefined>();
-  // const [selectedId, setSelectedId] = useState<Playlist["id"] |undefined>();
+  // NOT STATE:
+  // const playlists = mockPlaylists as Playlist[]; // GLOBALS!
+  const [playlists, setPlaylists] = useState(mockPlaylists);
 
-  const playlists = mockPlaylists as Playlist[];
   const [selectedId, setSelectedId] = useState<Playlist["id"]>();
   const [selected, setSelected] = useState<Playlist>();
 
@@ -35,18 +35,30 @@ const PlaylistsPage = (props: Props) => {
   };
 
   const savePlaylist = (draft: Playlist) => {
-    debugger;
-    const index = playlists.findIndex((p) => p.id == draft.id);
-    playlists[index] = draft;
+    // Mutatable
+    // const index = playlists.findIndex((p) => p.id == draft.id);
+    // playlists[index] = draft;
+    // setPlaylists([...playlists]);
+
+    // Immutable
+    setPlaylists(playlists.map((p) => (p.id == draft.id ? draft : p)));
+
     setSelected(draft);
     setMode("details");
   };
 
   const createPlaylist = (draft: Playlist) => {
     draft.id = crypto.randomUUID();
-    playlists[playlists.length] = draft;
+
+    // Mutatable
+    // playlists[playlists.length] = draft;
+    // setPlaylists([...playlists]);
+
+    // Immutable
+    setPlaylists([...playlists, draft]);
+
     setSelected(draft);
-    setSelectedId(draft.id)
+    setSelectedId(draft.id);
     setMode("details");
   };
 
