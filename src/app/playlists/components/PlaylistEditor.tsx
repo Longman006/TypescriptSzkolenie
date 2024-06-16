@@ -13,14 +13,23 @@ const playlist: Playlist = {
 };
 
 const PlaylistEditor = (props: Props) => {
-  
   // const [playlistName, setPlaylistName] = useState(playlist.name);
 
-  const [playlistDraft, setPlaylistDraft] = useState(playlist)
+  const [playlistDraft, setPlaylistDraft] = useState(playlist);
 
   const nameChangeHandler = (e: React.ChangeEvent<HTMLInputElement>): void => {
+    // (e.target.value) === oldValue
     // setPlaylistName(e.target.value);
-    // setPlaylistDraft( ??? )
+
+    // playlist.name = e.target.value
+
+    // oldPlaylistObj === newPlaylistObj
+    // setPlaylistDraft(playlist)
+
+    // oldPlaylistObj === newPlaylistObj
+    // setPlaylistDraft({...playlist})
+
+    setPlaylistDraft({ ...playlist, name: e.target.value });
   };
 
   return (
