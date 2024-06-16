@@ -35,10 +35,13 @@ const PlaylistsPage = (props: Props) => {
   };
 
   const savePlaylist = (draft: Playlist) => {
+    const index = playlists.findIndex((p) => p.id == draft.id);
     setMode("details");
   };
 
   const createPlaylist = (draft: Playlist) => {
+    draft.id = crypto.randomUUID()
+    
     setMode("details");
   };
 
@@ -61,7 +64,6 @@ const PlaylistsPage = (props: Props) => {
           </button>
         </div>
         <div>
-
           {mode === "details" && (
             <PlaylistDetails playlist={selected} onEdit={showEditor} />
           )}
