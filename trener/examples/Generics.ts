@@ -19,3 +19,28 @@ const y = identity({ v: [{ name: 'placki' }] })
 const name = y.v[0].name // string
 
 
+// :
+type Snapshot<T> = {
+    timestamp?: Date,
+    value: T
+    // value: any // Any looses type
+}
+// txtSnap.value.???? // Any looses type
+
+const txtSnap: Snapshot<string> = { value: 'placki' }
+const numberSnap: Snapshot<number> = { value: 123 }
+
+const Incepcja: Snapshot<Snapshot<Snapshot<'placki'>>> = {
+    value: {
+        value: {
+            value: 'placki'
+        }
+    }
+}
+
+// Extract from Generic and retain type:
+
+function readFromSnapshot(snap){
+    return snap.value
+}
+const result = readFromSnapshot(txtSnap)
