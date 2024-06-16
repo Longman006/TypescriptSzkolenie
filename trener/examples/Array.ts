@@ -50,3 +50,21 @@ const ticktactoe: TickTackToe = [
 ];
 
 let nextMove: ValidMoves = 'O'
+
+
+// Tuple (Krotki)
+
+//  (string | number)[]
+const person = [123, 'Jan', 'Kowalski']
+
+const id = person[0]
+person[0] = 'Alice' // !!!
+
+
+type Person = [id: number, name: string, surname: string]
+
+const alice: Person = [123, 'ALice', 'Makota']
+const bob: Person = [234, 'Bob', 'Kate']
+
+// showUser(id: number, name: string, surname: string): void
+function showUser(...user: Person) { }
