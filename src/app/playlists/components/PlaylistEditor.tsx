@@ -14,10 +14,13 @@ const playlist: Playlist = {
 
 const PlaylistEditor = (props: Props) => {
   
-  const [playlistName, setPlaylistName] = useState(playlist.name);
+  // const [playlistName, setPlaylistName] = useState(playlist.name);
+
+  const [playlistDraft, setPlaylistDraft] = useState(playlist)
 
   const nameChangeHandler = (e: React.ChangeEvent<HTMLInputElement>): void => {
-    setPlaylistName(e.target.value);
+    // setPlaylistName(e.target.value);
+    // setPlaylistDraft( ??? )
   };
 
   return (
@@ -29,10 +32,10 @@ const PlaylistEditor = (props: Props) => {
             <input
               type="text"
               className="w-full"
-              value={playlistName}
+              value={playlistDraft.name}
               onChange={nameChangeHandler}
             />
-            <div className="text-end">{playlistName.length} / 100</div>
+            <div className="text-end">{playlistDraft.name.length} / 100</div>
           </div>
         </div>
         <div className="grid">
