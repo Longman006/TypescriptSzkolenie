@@ -3,16 +3,9 @@
 import React, { ChangeEvent, useState } from "react";
 import { Playlist } from "../../core/types/Playlist";
 
-type Props = {playlist: Playlist;};
+type Props = { playlist: Playlist };
 
-const playlist: Playlist = {
-  id: "123",
-  name: "Playlist 123",
-  public: false,
-  description: "Best playlist",
-};
-
-const PlaylistEditor = (props: Props) => {
+const PlaylistEditor = ({ playlist }: Props) => {
   
   const [playlistDraft, setPlaylistDraft] = useState(playlist);
 

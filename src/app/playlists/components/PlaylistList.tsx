@@ -10,15 +10,12 @@ type Props = {
   selectedId: string;
 };
 
-const PlaylistList = ({ playlists, selectedId, onSelect: selectById }: Props) => {
-
-  // const playlists = props.playlists;
-  // const onSelect = props.onSelect;
-  // const selectedId = props.selectedId;
-
-  // Destructuring Props
-  // const { playlists, selectedId, onSelect: selectById } = props;
-
+const PlaylistList = ({
+  playlists,
+  selectedId,
+  onSelect: selectById,
+}: Props) => {
+  
   return (
     <div>
       <div className="grid divide-y divide-gray-600">

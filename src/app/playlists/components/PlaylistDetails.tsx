@@ -1,18 +1,10 @@
 import React from "react";
 import { Playlist } from "../../core/types/Playlist";
 
-type Props = {playlist: Playlist;};
+type Props = { playlist: Playlist };
 
-const playlist: Playlist = {
-  id: "123",
-  name: "Playlist 123",
-  public: false,
-  description: "Best playlist",
-};
+const PlaylistDetails = ({ playlist }: Props) => {
 
-// type Playlist = typeof playlist;
-
-const PlaylistDetails = (props: Props) => {
   return (
     <div>
       <div
