@@ -34,6 +34,7 @@ const PlaylistsPage = (props: Props) => {
   const savePlaylist = (draft: Playlist) => {
     setMode("details");
   };
+  
   return (
     <div>
       <h1 className="text-4xl leading-loose">Playlists</h1>
@@ -50,11 +51,11 @@ const PlaylistsPage = (props: Props) => {
         </div>
         <div>
           {mode === "details" && (
-            <PlaylistDetails playlist={selected} onEdit={} />
+            <PlaylistDetails playlist={selected} onEdit={showEditor} />
           )}
 
           {mode === "editor" && (
-            <PlaylistEditor playlist={selected} onCancel={} onSave={} />
+            <PlaylistEditor playlist={selected} onCancel={showDetails} onSave={savePlaylist} />
           )}
         </div>
       </div>

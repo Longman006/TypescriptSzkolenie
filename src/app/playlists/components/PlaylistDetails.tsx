@@ -1,9 +1,9 @@
 import React from "react";
 import { Playlist } from "../../core/types/Playlist";
 
-type Props = { playlist: Playlist };
+type Props = { playlist: Playlist; onEdit: () => void };
 
-const PlaylistDetails = ({ playlist }: Props) => {
+const PlaylistDetails = ({ playlist, onEdit }: Props) => {
   return (
     <div>
       <div
@@ -38,7 +38,7 @@ const PlaylistDetails = ({ playlist }: Props) => {
       <div className="flex justify-start">
         <button
           className="bg-purple-500 text-white px-5 py-2"
-          onClick={()=>{}}
+          onClick={onEdit}
         >
           Edit
         </button>

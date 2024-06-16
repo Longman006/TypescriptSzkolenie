@@ -3,10 +3,13 @@
 import React, { ChangeEvent, useState } from "react";
 import { Playlist } from "../../core/types/Playlist";
 
-type Props = { playlist: Playlist };
+type Props = {
+  playlist: Playlist;
+  onCancel: () => void;
+  onSave: (draft: Playlist) => void;
+};
 
-const PlaylistEditor = ({ playlist }: Props) => {
-  
+const PlaylistEditor = ({ playlist, onCancel, onSave }: Props) => {
   const [playlistDraft, setPlaylistDraft] = useState(playlist);
 
   const nameChangeHandler = (e: React.ChangeEvent<HTMLInputElement>): void => {
@@ -41,20 +44,20 @@ const PlaylistEditor = ({ playlist }: Props) => {
         </div>
       </div>
       <div className="flex justify-between">
-            <button
-              className="bg-red-500 text-white px-5 py-2"
-              onClick={()=>{}}
-            >
-              Cancel
-            </button>
+        <button className="bg-red-500 text-white px-5 py-2"
+         onClick={onCancel}>
+          Cancel
+        </button>
 
-            <button
-              className="bg-green-600 text-white px-5 py-2"
-              onClick={()=>{}}
-            >
-              Save
-            </button>
-          </div>
+        <button
+          className="bg-green-600 text-white px-5 py-2"
+          onClick={() => {
+            onSave(playlistDraft);
+          }}
+        >
+          Save
+        </button>
+      </div>
     </div>
   );
 };
