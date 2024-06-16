@@ -28,6 +28,7 @@ const playlists: Playlist[] = [
 
 const PlaylistList = (props: Props) => {
 
+
   // const renderPlaylist = (playlist: Playlist, index: number): React.JSX.Element => (
   //   <div className="p-5">
   //     {index + 1}. {playlist.name}
