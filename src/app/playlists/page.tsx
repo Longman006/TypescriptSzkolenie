@@ -14,31 +14,16 @@ const PlaylistsPage = (props: Props) => {
   type Modes = "details" | "editor" | "creator";
   const [mode, setMode] = useState<Modes>("details");
 
-  const playlists = mockPlaylists as (Playlist | "")[];
-  const [selectedId, setSelectedId] = useState("234");
-  const [selected, setSelected] = useState(mockPlaylists[1]);
+  // const [selected, setSelected] = useState<Playlist | undefined>();
+  // const [selectedId, setSelectedId] = useState<Playlist["id"] |undefined>();
+
+  const playlists = mockPlaylists as Playlist[];
+  const [selectedId, setSelectedId] = useState<Playlist["id"]>();
+  const [selected, setSelected] = useState<Playlist>();
 
   const selectPlaylistById = (id: string) => {
     setSelectedId(id);
-
-    // const found = playlists.find((p) => p.id === id) // error
-    // const found = playlists.find((p) => p.id === id) as any
-    // found.get.me.a.million.dollars().now().and.a.cat()
-
-    // const found = playlists.find((p) => p.id === id) as Playlist;
-    // const found = playlists.find((p) => p.id === id) !;
-    // const found = {} as Playlist;
-
-    const found = playlists.find((p) => p.id === id);
-
-    if (typeof found === "object") {
-      setSelected(found); // Playlist
-    } else if (found == undefined) {
-      found; // undefined
-    } else {
-      found satisfies never; // TS;
-      throw new Error("Unhandled selection!"); // JS
-    }
+    setSelected(playlists.find((p) => p.id === id));
   };
 
   const showDetails = () => {
@@ -76,13 +61,14 @@ const PlaylistsPage = (props: Props) => {
             <PlaylistDetails playlist={selected} onEdit={showEditor} />
           )}
 
+          {/*
           {mode === "editor" && (
             <PlaylistEditor
               playlist={selected}
               onCancel={showDetails}
               onSave={savePlaylist}
             />
-          )}
+          )} */}
         </div>
       </div>
     </div>

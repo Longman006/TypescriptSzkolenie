@@ -7,7 +7,9 @@ import { Playlist } from "../../core/types/Playlist";
 type Props = {
   playlists: Playlist[];
   onSelect: (id: string) => void;
-  selectedId: string;
+  
+  // selectedId: string | undefined;
+  selectedId?: string ;
 };
 
 const PlaylistList = ({
@@ -15,7 +17,7 @@ const PlaylistList = ({
   selectedId,
   onSelect: selectById,
 }: Props) => {
-  
+
   return (
     <div>
       <div className="grid divide-y divide-gray-600">

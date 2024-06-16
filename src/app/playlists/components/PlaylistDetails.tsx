@@ -1,9 +1,18 @@
+"use client";
+
 import React from "react";
 import { Playlist } from "../../core/types/Playlist";
 
-type Props = { playlist: Playlist; onEdit: () => void };
+type Props = {
+  playlist?: Playlist;
+  onEdit: () => void;
+};
 
 const PlaylistDetails = ({ playlist, onEdit }: Props) => {
+  // Function Guard // Early return 
+  if (!playlist) return <p>No playlist selected</p>;
+  // else {
+
   return (
     <div>
       <div
