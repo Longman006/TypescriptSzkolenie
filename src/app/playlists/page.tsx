@@ -12,18 +12,13 @@ const PlaylistsPage = (props: Props) => {
     <div>
       <h1 className="text-4xl leading-loose">Playlists</h1>
 
-
       <div className="grid grid-cols-2 gap-7">
         <div>
           <PlaylistList />
-          {/* DIRTY! */}
-          <PlaylistEditor /> {/* [0] playlistName, setPlaylistName */}
-
         </div>
         <div>
           <PlaylistDetails />
-                    {/* GLOBAL_TUTAJ_JESTEM */} 
-          <PlaylistEditor />{/* [0] playlistName, setPlaylistName */}
+          <PlaylistEditor />
         </div>
       </div>
     </div>

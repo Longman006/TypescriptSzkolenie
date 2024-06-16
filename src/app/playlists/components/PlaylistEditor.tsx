@@ -5,25 +5,19 @@ import { Playlist } from "./Playlist";
 
 type Props = {};
 
-// y = 2 x + b  
-
-// View = State + Event 
+const playlist: Playlist = {
+  id: "123",
+  name: "Playlist 123",
+  public: false,
+  description: "Best playlist",
+};
 
 const PlaylistEditor = (props: Props) => {
-  const playlist: Playlist = {
-    id: "123",
-    name: "Playlist 123",
-    public: false,
-    description: "Best playlist",
-  };
-
-                                        /* GDZIE_JESTEM?  */
+  
   const [playlistName, setPlaylistName] = useState(playlist.name);
 
   const nameChangeHandler = (e: React.ChangeEvent<HTMLInputElement>): void => {
     setPlaylistName(e.target.value);
-
-    // playlist.name = e.target.value
   };
 
   return (
