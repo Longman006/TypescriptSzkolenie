@@ -35,8 +35,9 @@ const PlaylistsPage = (props: Props) => {
   };
 
   const savePlaylist = (draft: Playlist) => {
-    // Immutable
-    setPlaylists(playlists.map((p) => (p.id == draft.id ? draft : p)));
+    setPlaylists((prevPlaylists) =>
+      prevPlaylists.map((p) => (p.id == draft.id ? draft : p))
+    );
 
     setSelected(draft);
     setMode("details");
@@ -45,18 +46,7 @@ const PlaylistsPage = (props: Props) => {
   const createPlaylist = (draft: Playlist) => {
     draft.id = crypto.randomUUID();
 
-    setPlaylists((prevState) => {
-      console.log("potem");
-      return [...prevState, draft];
-    });
-
-    console.log("najpierw");
-    
-    // Ile playlist się doda?
-    // 3
-    setPlaylists([...playlists, draft]); // 3 + 1
-    setPlaylists([...playlists, draft]); // 3 + 1
-    setPlaylists([...playlists, draft]); // 3 + 1
+    setPlaylists((prevState) => [...prevState, draft]);
 
     setSelected(draft);
     setSelectedId(draft.id);
