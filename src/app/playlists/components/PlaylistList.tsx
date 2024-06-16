@@ -1,32 +1,23 @@
 "use client";
 
-import React, { placki } from "react"; 
+import React, { placki, useState } from "react";
 import { mockPlaylists } from "@core/mocks/mockPlaylists";
 
 type Props = {};
 
 const PlaylistList = (props: Props) => {
-
-  // useStateSnippet
-
   const playlists = mockPlaylists;
 
-  const selectedId = '234'
-
-  const selectPlaylist = (id:string) => {
-    // selectedId = id  // Immmutable!
-  }
+  const [selectedId, setSelectedId] = useState("234");
 
   return (
     <div>
       <div className="grid divide-y divide-gray-600">
-        {mockPlaylists.map((playlist, index) => (
+        {playlists.map((playlist, index) => (
           <div
             key={playlist.id}
-            className="p-5 bg-fuchsia-400 text-white"
-            onClick={(event) => {
-              console.log(playlist.id);
-            }}
+            className={`p-5 ${selectedId === playlist.id ? "bg-fuchsia-400 text-white" : "cursor-pointer hover:bg-fuchsia-100"}`}
+            onClick={() => setSelectedId(playlist.id)}
           >
             {index + 1}. {playlist.name}
           </div>
