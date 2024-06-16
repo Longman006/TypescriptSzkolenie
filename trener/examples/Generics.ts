@@ -40,7 +40,29 @@ const Incepcja: Snapshot<Snapshot<Snapshot<'placki'>>> = {
 
 // Extract from Generic and retain type:
 
-function readFromSnapshot(snap){
+// function readFromSnapshot<T>(snap: Snapshot<T>): T {
+function readFromSnapshot<T>(snap: Snapshot<T>) {
     return snap.value
 }
-const result = readFromSnapshot(txtSnap)
+const result1 = readFromSnapshot(txtSnap) // string
+const result2 = readFromSnapshot(numberSnap) // number
+
+
+// Pagination
+type Album = { type: 'album' }
+type Podcast = { type: 'podcast' }
+
+type PagingObject<Item> = {
+    // items: Album[]
+    // items: Podcast[],
+    items: Item[],
+    total?: number, // 200
+    count?: number, // 20
+    page?: number // 5
+}
+type Albums = PagingObject<Album>
+type Podcasts = PagingObject<Podcast>
+
+const results: PagingObject<Album> = { items: [{} as Album] }
+// const results: PagingObject<Podcast> = { items: [{} as Album] } // Error
+
