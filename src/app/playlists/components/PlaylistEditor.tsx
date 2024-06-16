@@ -21,9 +21,10 @@ const PlaylistEditor = ({
   onCancel,
   onSave,
 }: Props) => {
-  
+
   // If no playlist use default
-  // playlist = playlist || EMPTY_PLAYLIST;
+  playlist = playlist || EMPTY_PLAYLIST; // 0, '', false, null, undefined
+  playlist = playlist ?? EMPTY_PLAYLIST; // undefined
 
   const [playlistDraft, setPlaylistDraft] = useState(playlist);
 
