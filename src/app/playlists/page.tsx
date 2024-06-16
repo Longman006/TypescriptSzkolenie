@@ -6,6 +6,7 @@ import PlaylistList from "./components/PlaylistList";
 import PlaylistEditor from "./components/PlaylistEditor";
 import PlaylistDetails from "./components/PlaylistDetails";
 import { mockPlaylists } from "../core/mocks/mockPlaylists";
+import { Playlist } from "../core/types/Playlist";
 
 type Props = {};
 
@@ -30,6 +31,9 @@ const PlaylistsPage = (props: Props) => {
     setMode("editor");
   };
 
+  const savePlaylist = (draft: Playlist) => {
+    setMode("details");
+  };
   return (
     <div>
       <h1 className="text-4xl leading-loose">Playlists</h1>
@@ -45,9 +49,13 @@ const PlaylistsPage = (props: Props) => {
           {/* <input type="text" value={selected.name} onKeyUp={e => {}} placki={}/> */}
         </div>
         <div>
-          {mode === "details" && <PlaylistDetails playlist={selected} />}
+          {mode === "details" && (
+            <PlaylistDetails playlist={selected} onEdit={} />
+          )}
 
-          {mode === "editor" && <PlaylistEditor playlist={selected} />}
+          {mode === "editor" && (
+            <PlaylistEditor playlist={selected} onCancel={} onSave={} />
+          )}
         </div>
       </div>
     </div>
