@@ -10,13 +10,14 @@ type Props = {
   selectedId: string;
 };
 
-const PlaylistList = (props: Props) => {
+const PlaylistList = ({ playlists, selectedId, onSelect: selectById }: Props) => {
+
   // const playlists = props.playlists;
   // const onSelect = props.onSelect;
   // const selectedId = props.selectedId;
 
   // Destructuring Props
-  const { playlists, selectedId, onSelect } = props;
+  // const { playlists, selectedId, onSelect: selectById } = props;
 
   return (
     <div>
@@ -29,7 +30,7 @@ const PlaylistList = (props: Props) => {
                 ? "bg-fuchsia-400 text-white"
                 : "cursor-pointer hover:bg-fuchsia-100"
             }`}
-            onClick={() => onSelect(playlist.id)}
+            onClick={() => selectById(playlist.id)}
           >
             {index + 1}. {playlist.name}
           </div>
