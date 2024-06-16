@@ -66,3 +66,17 @@ type Podcasts = PagingObject<Podcast>
 const results: PagingObject<Album> = { items: [{} as Album] }
 // const results: PagingObject<Podcast> = { items: [{} as Album] } // Error
 
+
+// Generic inference - args, return value, etc.
+
+function getFirst<T>(arr: T[]): T {
+    return arr[0]
+}
+
+
+const num = getFirst<number>([123, 123])
+// const str = getFirst([]) // never
+// const str = getFirst(['text', 'ala']) // string - inferef from arguments
+const str = getFirst(['text', 'ala', 123, true]) // string | number | boolean
+
+const res: 'placki' = getFirst(['placki']) // Infered from return
