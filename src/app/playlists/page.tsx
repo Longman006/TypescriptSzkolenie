@@ -35,11 +35,6 @@ const PlaylistsPage = (props: Props) => {
   };
 
   const savePlaylist = (draft: Playlist) => {
-    // Mutatable
-    // const index = playlists.findIndex((p) => p.id == draft.id);
-    // playlists[index] = draft;
-    // setPlaylists([...playlists]);
-
     // Immutable
     setPlaylists(playlists.map((p) => (p.id == draft.id ? draft : p)));
 
@@ -50,11 +45,9 @@ const PlaylistsPage = (props: Props) => {
   const createPlaylist = (draft: Playlist) => {
     draft.id = crypto.randomUUID();
 
-    // Mutatable
-    // playlists[playlists.length] = draft;
-    // setPlaylists([...playlists]);
-
-    // Immutable
+    // Ile playlist się doda?
+    setPlaylists([...playlists, draft]);
+    setPlaylists([...playlists, draft]);
     setPlaylists([...playlists, draft]);
 
     setSelected(draft);
