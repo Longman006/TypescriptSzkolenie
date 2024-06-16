@@ -1,7 +1,7 @@
 "use client";
 
 import React, { ChangeEvent, useState } from "react";
-import { Playlist } from "./Playlist";
+import { Playlist } from "../../core/types/Playlist";
 
 type Props = {};
 

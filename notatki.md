@@ -249,6 +249,16 @@ https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss
 Quicktype
 https://marketplace.visualstudio.com/items?itemName=quicktype.quicktype
 
+Ts Pretty Errors
+https://marketplace.visualstudio.com/items?itemName=yoavbls.pretty-ts-errors
+
+NextJS
+https://marketplace.visualstudio.com/items?itemName=PulkitGangwar.nextjs-snippets
+
+# Dev Tools
+https://chromewebstore.google.com/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en
+
+
 # Tailwind config
 // .vscode\settings.json
 {

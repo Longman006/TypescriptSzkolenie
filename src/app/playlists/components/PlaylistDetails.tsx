@@ -1,5 +1,5 @@
 import React from "react";
-import { Playlist } from "./Playlist";
+import { Playlist } from "../../core/types/Playlist";
 
 type Props = {};
 

@@ -1,7 +1,7 @@
 "use client";
 
-import React, { placki } from "react";
-import { mockPlaylists } from "./mockPlaylists";
+import React, { placki } from "react"; 
+import { mockPlaylists } from "@core/mocks/mockPlaylists";
 
 type Props = {};
 

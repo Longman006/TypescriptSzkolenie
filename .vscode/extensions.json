@@ -1,0 +1,11 @@
+{
+    "recommendations": [
+        "dsznajder.es7-react-js-snippets",
+        "pulkitgangwar.nextjs-snippets",
+        "quicktype.quicktype",
+        "esbenp.prettier-vscode",
+        "rvest.vs-code-prettier-eslint",
+        "yoavbls.pretty-ts-errors",
+        "bradlc.vscode-tailwindcss"
+    ]
+}
