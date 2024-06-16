@@ -90,3 +90,21 @@ function printName<T extends { name: string }>(person: T) {
 }
 
 printName({ name: '123', surname: 'placki' })
+
+
+// Multiple constraints
+
+type PlaylistKeys = keyof Playlist // 'id' | 'name' | ...
+const key: PlaylistKeys = 'name'
+
+
+// function getProperty<T>(obj: T, key: string) {
+// function getProperty<T extends { 'age': any }>(obj: T, key: 'age') {
+// function getProperty<T extends {}>(obj: T, key: keyof T) {
+
+function getProperty<T extends {}, K extends keyof T>(obj: T, key: K) {
+    return obj[key]
+}
+
+getProperty({ name: 'placki', age: 2 }, 'age')
+// getProperty({ name: 'placki', age: 2 }, 'ala ma kota')
