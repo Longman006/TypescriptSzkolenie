@@ -29,9 +29,24 @@ const booleans: Array<boolean> = [true]
 const modes: Array<'on' | 'off'> = ['off', 'on']
 
 
+
+
+
+
 // Type Nested Array 
-const ticktactoe = [
+// const ticktactoe: ('X' | 'O' | ' ')[][] = [
+// const ticktactoe: Array<Array<'X' | 'O' | ' '>> = [
+
+
+type ValidMoves = 'X' | 'O'
+type GameCell = ValidMoves | ' '
+type GameRow = Array<GameCell>
+type TickTackToe = Array<GameRow>
+
+const ticktactoe: TickTackToe = [
     ["X", "O", "X"],
     ["O", " ", " "],
     ["X", "O", "X"],
 ];
+
+let nextMove: ValidMoves = 'O'
