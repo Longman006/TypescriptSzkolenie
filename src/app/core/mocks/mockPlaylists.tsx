@@ -1,7 +1,5 @@
 import { Playlist } from "../types/Playlist";
 
- 
-
 export const mockPlaylists: Playlist[] = [
   {
     id: "123",

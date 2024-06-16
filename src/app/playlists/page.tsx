@@ -14,13 +14,31 @@ const PlaylistsPage = (props: Props) => {
   type Modes = "details" | "editor" | "creator";
   const [mode, setMode] = useState<Modes>("details");
 
-  const playlists = mockPlaylists;
+  const playlists = mockPlaylists as (Playlist | "")[];
   const [selectedId, setSelectedId] = useState("234");
   const [selected, setSelected] = useState(mockPlaylists[1]);
 
   const selectPlaylistById = (id: string) => {
     setSelectedId(id);
-    setSelected(playlists.find((p) => p.id === id)!);
+
+    // const found = playlists.find((p) => p.id === id) // error
+    // const found = playlists.find((p) => p.id === id) as any
+    // found.get.me.a.million.dollars().now().and.a.cat()
+
+    // const found = playlists.find((p) => p.id === id) as Playlist;
+    // const found = playlists.find((p) => p.id === id) !;
+    // const found = {} as Playlist;
+
+    const found = playlists.find((p) => p.id === id);
+
+    if (typeof found === "object") {
+      setSelected(found); // Playlist
+    } else if (found == undefined) {
+      found; // undefined
+    } else {
+      found satisfies never; // TS;
+      throw new Error("Unhandled selection!"); // JS
+    }
   };
 
   const showDetails = () => {
@@ -34,7 +52,7 @@ const PlaylistsPage = (props: Props) => {
   const savePlaylist = (draft: Playlist) => {
     setMode("details");
   };
-  
+
   return (
     <div>
       <h1 className="text-4xl leading-loose">Playlists</h1>
@@ -46,8 +64,12 @@ const PlaylistsPage = (props: Props) => {
             onSelect={selectPlaylistById}
             selectedId={selectedId}
           />
-
-          {/* <input type="text" value={selected.name} onKeyUp={e => {}} placki={}/> */}
+          <button
+            className="bg-fuchsia-500 text-white px-5 py-2 mt-3 float-end"
+            onClick={() => setMode("creator")}
+          >
+            Create New
+          </button>
         </div>
         <div>
           {mode === "details" && (
@@ -55,7 +77,11 @@ const PlaylistsPage = (props: Props) => {
           )}
 
           {mode === "editor" && (
-            <PlaylistEditor playlist={selected} onCancel={showDetails} onSave={savePlaylist} />
+            <PlaylistEditor
+              playlist={selected}
+              onCancel={showDetails}
+              onSave={savePlaylist}
+            />
           )}
         </div>
       </div>

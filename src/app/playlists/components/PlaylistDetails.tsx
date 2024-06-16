@@ -37,7 +37,7 @@ const PlaylistDetails = ({ playlist, onEdit }: Props) => {
 
       <div className="flex justify-start">
         <button
-          className="bg-purple-500 text-white px-5 py-2"
+          className="bg-fuchsia-500 text-white px-5 py-2"
           onClick={onEdit}
         >
           Edit
