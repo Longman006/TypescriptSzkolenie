@@ -80,3 +80,13 @@ const num = getFirst<number>([123, 123])
 const str = getFirst(['text', 'ala', 123, true]) // string | number | boolean
 
 const res: 'placki' = getFirst(['placki']) // Infered from return
+
+
+// Constraints <T extends ???>
+
+// function printName(person: { name: string }) {
+function printName<T extends { name: string }>(person: T) {
+    return person.name
+}
+
+printName({ name: '123', surname: 'placki' })
