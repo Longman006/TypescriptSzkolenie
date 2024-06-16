@@ -10,12 +10,28 @@ import { Playlist } from "../core/types/Playlist";
 
 type Props = {};
 
+/**
+ * Updates playlist in array
+ * @param draft Playlist
+ * @returns Playlsits array
+ */
+const updatePlaylist =
+  (draft: Playlist) =>
+  // Action old => new
+  (prevPlaylists: Playlist[]): Playlist[] =>
+    prevPlaylists.map((p) => (p.id == draft.id ? draft : p));
+
+const insertNewPlaylist =
+  (draft: Playlist) =>
+  (prevState: Playlist[]): Playlist[] =>
+    [...prevState, draft];
+
+// ------------
+
 const PlaylistsPage = (props: Props) => {
   type Modes = "details" | "editor" | "creator";
   const [mode, setMode] = useState<Modes>("details");
 
-  // NOT STATE:
-  // const playlists = mockPlaylists as Playlist[]; // GLOBALS!
   const [playlists, setPlaylists] = useState(mockPlaylists);
 
   const [selectedId, setSelectedId] = useState<Playlist["id"]>();
@@ -35,10 +51,7 @@ const PlaylistsPage = (props: Props) => {
   };
 
   const savePlaylist = (draft: Playlist) => {
-    setPlaylists((prevPlaylists) =>
-      prevPlaylists.map((p) => (p.id == draft.id ? draft : p))
-    );
-
+    setPlaylists(updatePlaylist(draft));
     setSelected(draft);
     setMode("details");
   };
@@ -46,7 +59,7 @@ const PlaylistsPage = (props: Props) => {
   const createPlaylist = (draft: Playlist) => {
     draft.id = crypto.randomUUID();
 
-    setPlaylists((prevState) => [...prevState, draft]);
+    setPlaylists(insertNewPlaylist(draft));
 
     setSelected(draft);
     setSelectedId(draft.id);
