@@ -40,8 +40,12 @@ const modes: Array<'on' | 'off'> = ['off', 'on']
 
 type ValidMoves = 'X' | 'O'
 type GameCell = ValidMoves | ' '
-type GameRow = Array<GameCell>
-type TickTackToe = Array<GameRow>
+
+// type GameRow = Array<GameCell>
+// type TickTackToe = Array<GameRow>
+
+type GameRow = [GameCell, GameCell, GameCell]
+type TickTackToe = [GameRow, GameRow, GameRow]
 
 const ticktactoe: TickTackToe = [
     ["X", "O", "X"],
@@ -68,3 +72,5 @@ const bob: Person = [234, 'Bob', 'Kate']
 
 // showUser(id: number, name: string, surname: string): void
 function showUser(...user: Person) { }
+
+const [id2, name, surname, /* error */] = alice
