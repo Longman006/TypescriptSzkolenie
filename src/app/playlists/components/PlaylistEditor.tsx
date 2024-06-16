@@ -4,12 +4,27 @@ import React, { ChangeEvent, useState } from "react";
 import { Playlist } from "../../core/types/Playlist";
 
 type Props = {
-  playlist: Playlist;
+  playlist?: Playlist;
   onCancel: () => void;
   onSave: (draft: Playlist) => void;
 };
 
-const PlaylistEditor = ({ playlist, onCancel, onSave }: Props) => {
+const EMPTY_PLAYLIST = {
+  id: "",
+  name: "",
+  public: false,
+  description: "",
+};
+
+const PlaylistEditor = ({
+  playlist = EMPTY_PLAYLIST, // if no playlist use default
+  onCancel,
+  onSave,
+}: Props) => {
+  
+  // If no playlist use default
+  // playlist = playlist || EMPTY_PLAYLIST;
+
   const [playlistDraft, setPlaylistDraft] = useState(playlist);
 
   const nameChangeHandler = (e: React.ChangeEvent<HTMLInputElement>): void => {
@@ -44,8 +59,7 @@ const PlaylistEditor = ({ playlist, onCancel, onSave }: Props) => {
         </div>
       </div>
       <div className="flex justify-between">
-        <button className="bg-red-500 text-white px-5 py-2"
-         onClick={onCancel}>
+        <button className="bg-red-500 text-white px-5 py-2" onClick={onCancel}>
           Cancel
         </button>
 

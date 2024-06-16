@@ -9,9 +9,7 @@ type Props = {
 };
 
 const PlaylistDetails = ({ playlist, onEdit }: Props) => {
-  // Function Guard // Early return 
   if (!playlist) return <p>No playlist selected</p>;
-  // else {
 
   return (
     <div>

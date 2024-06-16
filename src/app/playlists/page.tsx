@@ -38,6 +38,10 @@ const PlaylistsPage = (props: Props) => {
     setMode("details");
   };
 
+  const createPlaylist = (draft: Playlist) => {
+    setMode("details");
+  };
+
   return (
     <div>
       <h1 className="text-4xl leading-loose">Playlists</h1>
@@ -57,18 +61,22 @@ const PlaylistsPage = (props: Props) => {
           </button>
         </div>
         <div>
+
           {mode === "details" && (
             <PlaylistDetails playlist={selected} onEdit={showEditor} />
           )}
 
-          {/*
           {mode === "editor" && (
             <PlaylistEditor
               playlist={selected}
               onCancel={showDetails}
               onSave={savePlaylist}
             />
-          )} */}
+          )}
+
+          {mode === "creator" && (
+            <PlaylistEditor onCancel={showDetails} onSave={createPlaylist} />
+          )}
         </div>
       </div>
     </div>

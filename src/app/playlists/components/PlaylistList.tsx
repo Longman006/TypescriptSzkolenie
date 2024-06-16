@@ -5,19 +5,16 @@ import { mockPlaylists } from "@core/mocks/mockPlaylists";
 import { Playlist } from "../../core/types/Playlist";
 
 type Props = {
-  playlists: Playlist[];
-  onSelect: (id: string) => void;
-  
-  // selectedId: string | undefined;
-  selectedId?: string ;
+  onSelect?: (id: string) => void;
+  playlists?: Playlist[];
+  selectedId?: string;
 };
 
 const PlaylistList = ({
-  playlists,
-  selectedId,
+  playlists = [],
+  selectedId = "",
   onSelect: selectById,
 }: Props) => {
-
   return (
     <div>
       <div className="grid divide-y divide-gray-600">
@@ -29,7 +26,7 @@ const PlaylistList = ({
                 ? "bg-fuchsia-400 text-white"
                 : "cursor-pointer hover:bg-fuchsia-100"
             }`}
-            onClick={() => selectById(playlist.id)}
+            onClick={() => selectById?.(playlist.id)}
           >
             {index + 1}. {playlist.name}
           </div>
