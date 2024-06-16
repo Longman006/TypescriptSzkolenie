@@ -25,6 +25,7 @@ const PlaylistsPage = (props: Props) => {
   const showDetails = () => {
     setMode("details");
   };
+
   const showEditor = () => {
     setMode("editor");
   };
@@ -35,14 +36,18 @@ const PlaylistsPage = (props: Props) => {
 
       <div className="grid grid-cols-2 gap-7">
         <div>
-          <PlaylistList playlists={playlists} />
+          <PlaylistList
+            playlists={playlists}
+            onSelect={selectPlaylistById}
+            selectedId={selectedId}
+          />
 
           {/* <input type="text" value={selected.name} onKeyUp={e => {}} placki={}/> */}
         </div>
         <div>
-          {mode === "details" && <PlaylistDetails />}
+          {mode === "details" && <PlaylistDetails playlist={selected} />}
 
-          {mode === "details" || <PlaylistEditor />}
+          {mode === "details" || <PlaylistEditor playlist={selected} />}
 
           <div className="flex justify-between">
             <button
