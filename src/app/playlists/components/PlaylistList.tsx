@@ -6,8 +6,8 @@ import { mockPlaylists } from "@core/mocks/mockPlaylists";
 type Props = {};
 
 const PlaylistList = (props: Props) => {
+  
   const playlists = mockPlaylists;
-
   const [selectedId, setSelectedId] = useState("234");
 
   return (
