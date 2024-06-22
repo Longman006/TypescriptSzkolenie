@@ -7,9 +7,9 @@ import { Album, AlbumResponse } from "../core/types/Album";
 import { useFocus } from "./useFocus";
 import { useDebounce } from "./useDebounce";
 
-function useFetchAlbums<T>(
-  query: string,
-  fetcher: (query?: string) => Promise<T>
+function useFetchAlbums<T, P>(
+  query: P,
+  fetcher: (query?: P) => Promise<T>
 ) {
   const [data, setData] = useState<T | undefined>(undefined);
   const [error, setError] = useState<unknown>(undefined);
