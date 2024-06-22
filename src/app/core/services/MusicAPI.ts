@@ -2,7 +2,7 @@ import { mockAlbums } from "../mocks/mockAlbums";
 import { PagingObject, AlbumResponse, AlbumSearchResponse } from "../types/Album";
 
 
-// export function fetchAlbumSearchResults(query = '') {
+// export async function fetchAlbumSearchResults(query = '') {
 //     console.log(query);
 
 //     return mockAlbums
@@ -17,6 +17,16 @@ export async function fetchAlbumSearchResults(query = "") {
             },
         }
     );
-    const data = (await res.json()) as AlbumSearchResponse
-    return data;
+    const data = (await res.json()) as AlbumSearchResponse | SpofifyError
+
+
+    return data.albums.items
 }
+
+
+export interface SpofifyError {
+    error: {
+        status: number;
+        message: string;
+    }
+} 

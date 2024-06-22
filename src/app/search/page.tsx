@@ -8,10 +8,20 @@ import { Album, AlbumResponse } from "../core/types/Album";
 export default function SearchPage() {
   const [query, setQuery] = useState("");
   const [results, setResults] = useState<Album[]>([]);
+  const [message, setMessage] = useState("");
 
+  //   const search = async (query = "") => {
+  //     const resp = await fetchAlbumSearchResults(query);
+  //     setResults(resp);
+  //   };
   const search = (query = "") => {
-    const resp = fetchAlbumSearchResults(query);
-    setResults(resp);
+    fetchAlbumSearchResults(query)
+      .then((res) => {
+        setResults(res);
+      })
+      .catch((error) => {
+        setMessage(error.message);
+      });
   };
 
   return (
@@ -37,6 +47,8 @@ export default function SearchPage() {
               Search
             </button>
           </form>
+
+          {message && <p className="my-2 text-red-500">{message}</p>}
 
           <div className="flex flex-col gap-1 ">
             <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4">
