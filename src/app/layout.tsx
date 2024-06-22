@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 
 import "@app/globals.css";
 import { login } from "./core/services/Auth";
+import { ClientProviders } from "./ClientProviders";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -20,11 +21,13 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <div className="container my-2">
-          <button className="bg-gray-500 text-white p-1 px-4 float-end" onClick={login}>
+          <button
+            className="bg-gray-500 text-white p-1 px-4 float-end"
+            onClick={login}
+          >
             Login
           </button>
-
-          {children}
+          <ClientProviders>{children}</ClientProviders>
         </div>
       </body>
     </html>

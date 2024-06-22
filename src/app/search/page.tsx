@@ -1,50 +1,36 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { mockAlbums } from "../core/mocks/mockAlbums";
 import { fetchAlbumSearchResults } from "../core/services/MusicAPI";
 import { Album, AlbumResponse } from "../core/types/Album";
 import { useFocus } from "./useFocus";
 import { useDebounce } from "./useDebounce";
-
-function useFetchAlbums<T, P>(
-  query: P,
-  fetcher: (query?: P) => Promise<T>
-) {
-  const [data, setData] = useState<T | undefined>(undefined);
-  const [error, setError] = useState<unknown>(undefined);
-  const [isLoading, setIsLoading] = useState(false);
-
-  useEffect(() => {
-    setData(undefined);
-    setIsLoading(true);
-    setError(undefined);
-    fetcher(query)
-      .then((res) => {
-        setData(res);
-      })
-      .catch((error) => {
-        setError(error);
-      })
-      .finally(() => {
-        setIsLoading(false);
-      });
-  }, [query]);
-
-  return { data, error, isLoading };
-}
+import { useFetchAlbums } from "./useFetchAlbums";
+import { useQuery } from "@tanstack/react-query";
 
 export default function SearchPage() {
   const [query, setQuery] = useState("");
-  
+
   const [debouncedQuery, setdebouncedQuery] = useState(query);
   useDebounce(setdebouncedQuery, [query]);
 
+  // const {
+  //   data: results = [],
+  //   error,
+  //   isLoading,
+  // } = useFetchAlbums(debouncedQuery, fetchAlbumSearchResults);
+
   const {
-    data: results = [],
+    data: results,
     error,
     isLoading,
-  } = useFetchAlbums(debouncedQuery, fetchAlbumSearchResults);
+  } = useQuery({
+    initialData: [],
+    queryKey: [debouncedQuery],
+    enabled: !!query,
+    queryFn: () => fetchAlbumSearchResults(debouncedQuery),
+  });
 
   const inputRef = useFocus<HTMLInputElement>([results]);
 
