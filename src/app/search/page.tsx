@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { mockAlbums } from "../core/mocks/mockAlbums";
 import { fetchAlbumSearchResults } from "../core/services/MusicAPI";
 import { Album, AlbumResponse } from "../core/types/Album";
@@ -10,10 +10,11 @@ export default function SearchPage() {
   const [results, setResults] = useState<Album[]>([]);
   const [message, setMessage] = useState("");
 
-  //   const search = async (query = "") => {
-  //     const resp = await fetchAlbumSearchResults(query);
-  //     setResults(resp);
-  //   };
+  useEffect(() => {
+    console.log("after render");
+    document.getElementById("searchQueryInput")?.focus();
+  }, [results]);
+
   const search = (query = "") => {
     fetchAlbumSearchResults(query)
       .then((res) => {
@@ -24,6 +25,7 @@ export default function SearchPage() {
       });
   };
 
+  console.log("render");
   return (
     <div>
       <div>
@@ -37,6 +39,7 @@ export default function SearchPage() {
             }}
           >
             <input
+              id="searchQueryInput"
               type="text"
               className=" flex-1"
               placeholder="Search albums"
