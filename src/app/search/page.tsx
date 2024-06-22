@@ -1,20 +1,17 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { mockAlbums } from "../core/mocks/mockAlbums";
 import { fetchAlbumSearchResults } from "../core/services/MusicAPI";
 import { Album, AlbumResponse } from "../core/types/Album";
+import { useFocus } from "./useFocus";
 
 export default function SearchPage() {
   const [query, setQuery] = useState("");
   const [results, setResults] = useState<Album[]>([]);
   const [message, setMessage] = useState("");
 
-  const inputRef = useRef<HTMLInputElement>(null);
-
-  useEffect(() => {
-    inputRef.current?.focus();
-  }, [results]);
+  const inputRef = useFocus<HTMLInputElement>([results]);
 
   useEffect(() => {
     const handler = setTimeout(() => {
