@@ -16,6 +16,13 @@ export default function SearchPage() {
     inputRef.current?.focus();
   }, [results]);
 
+  useEffect(() => {
+    const handler = setTimeout(() => {
+      search(query);
+    }, 500);
+
+    return () => clearTimeout(handler);
+  }, [query]);
 
   const search = (query = "") => {
     fetchAlbumSearchResults(query)
@@ -27,7 +34,6 @@ export default function SearchPage() {
       });
   };
 
-  console.log("render");
   return (
     <div>
       <div>
