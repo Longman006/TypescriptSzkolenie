@@ -53,9 +53,6 @@ takeCollection(stack).add(123)
 takeCollection(queue).add('234')
 
 
-
-
-
 /* 
 2 Generics - not One!
 
@@ -68,7 +65,5 @@ const x = {} as Collection<string>
 
 x.add(1123)
 x.remove() //string
-
-
 
 */
