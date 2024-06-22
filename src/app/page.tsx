@@ -7,8 +7,14 @@ export default function Home() {
       <div>
         <h1>Home</h1>
 
-        <Link href={"/playlists"}>Playlists</Link>
-        
+        <ul>
+          <li>
+            <Link href={"/playlists"}>Playlists</Link>
+          </li>
+          <li>
+            <Link href={"/search"}>search</Link>
+          </li>
+        </ul>
       </div>
     </main>
   );

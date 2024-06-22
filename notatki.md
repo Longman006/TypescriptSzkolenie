@@ -249,6 +249,9 @@ https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss
 Quicktype
 https://marketplace.visualstudio.com/items?itemName=quicktype.quicktype
 
+F1 -> Pastee JSON as Types
+https://developer.spotify.com/documentation/web-api/reference/get-an-album
+
 Ts Pretty Errors
 https://marketplace.visualstudio.com/items?itemName=yoavbls.pretty-ts-errors
 
