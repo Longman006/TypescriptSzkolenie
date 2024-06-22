@@ -12,11 +12,16 @@ interface Track {
   duration_ms: number;
 }
 
+// Partial Utility Type Mapping
+type Partial<T> = {
+  [key in keyof T]?: T[key];
+};
+type PartialPlaylist = Partial<Playlist>;
+type PartialTrack = Partial<Track>;
 
-type PartialPlaylist = {};
-type PartialTrack = {};
-
-
+// type PartialTrack = {
+//   [key in keyof Track]: Track[key];
+// };
 
 // Mapped Type + Lookup
 
@@ -29,7 +34,6 @@ type PlaylistCopy = {
 
 // Mapped Types
 type KeysOfPlaylist = keyof Playlist; // 'id' | 'name' | ...
-
 
 type PartialPlaylist2 = {
   // [klucz in KeysOfPlaylist]: "placki";
