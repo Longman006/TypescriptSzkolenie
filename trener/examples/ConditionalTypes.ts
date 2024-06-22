@@ -47,12 +47,24 @@ type Playlist = {
     public: boolean
 }
 
-type Pick<T, K extends keyof T> = {
-    [key in K]: T[K];
-};
+// type Pick<T, K extends keyof T> = {
+//     // [key in K]: T[K];
+//     [key in K]: T[key];
+// };
 
 type KeysOfPlaylist = keyof Playlist
 
-type PlaylistWithoutId = {
+type StringsWithoutId<T> = T extends 'id' ? never : T
 
-}
+type PlaylistKeysWithoutID = StringsWithoutId<keyof Playlist>
+
+type PlaylistWithoutId1 = Pick<Playlist, keyof Playlist>
+type PlaylistWithoutId2 = Pick<Playlist, 'name' | 'id'>
+type PlaylistWithoutId3 = Pick<Playlist, PlaylistKeysWithoutID>
+
+type Exclude<T, U> = T extends U ? never : T
+type OmitPlaylistId = Pick<Playlist, Exclude<keyof Playlist, 'id'>>
+
+// type Omit<T, K extends keyof T> = Pick<T, Exclude<keyof T, K>>
+
+type withoutID = Omit<Playlist, 'id'>

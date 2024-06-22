@@ -26,7 +26,7 @@ type PickFromPlaylistSomeKeys = {
 };
 
 type Pick<T, K extends keyof T> = {
-  [key in K]: T[K];
+  [key in K]: T[key];
 };
 type PlaylistPicked = Pick<Playlist, "name" | "id">;
 

@@ -1,3 +1,4 @@
+import { Playlist } from "../../src/app/core/types/Playlist"
 
 export { }
 
@@ -50,15 +51,18 @@ checkUserRole({ id: '123', role: 'admin' }, 'admin')
 
 
 
-
-
-
-
-
-
-function pick(obj: object, keys: type) {
-    return keys.reduce((acc, key) => {
-        acc[key] = obj[key]
-        return acc
-    }, {})
+function pick<T, K extends keyof T>(obj: T, keys: K[]) {
+    return keys.reduce((result, key) => {
+        result[key] = obj[key]
+        return result
+    }, {} as Pick<T, K>)
 }
+
+const result = pick({ x: 1, y: 2, z: 3 }, ['x', 'y'])
+// @ts-expect-error
+result.z
+
+// as {
+//     [key in K]: T[key]
+// }
+// type x = Pick<Playlist, 'id'>
