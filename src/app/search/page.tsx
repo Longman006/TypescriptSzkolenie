@@ -2,10 +2,13 @@
 
 import { mockAlbums } from "../core/mocks/mockAlbums";
 import { fetchAlbumSearchResults } from "../core/services/MusicAPI";
-import { AlbumResponse } from "../core/types/Album";
+import { Album, AlbumResponse } from "../core/types/Album";
 
 export default function SearchPage() {
-  const results = [] as AlbumResponse[];
+
+    
+
+  const results = [] as Album[];
 
   const search = (query = "") => {
     fetchAlbumSearchResults(query);

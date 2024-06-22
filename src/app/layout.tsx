@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 
 import "@app/globals.css";
+import { login } from "./core/services/Auth";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,7 +19,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <div className="container">{children}</div>
+        <div className="container my-2">
+          <button className="bg-gray-500 text-white p-1 px-4 float-end" onClick={login}>
+            Login
+          </button>
+
+          {children}
+        </div>
       </body>
     </html>
   );
