@@ -1,14 +1,14 @@
 import { mockAlbums } from "../mocks/mockAlbums";
-import { PagingObject, AlbumResponse } from "../types/Album";
+import { PagingObject, AlbumResponse, AlbumSearchResponse } from "../types/Album";
 
 
-export function fetchAlbumSearchResults(query = '') {
-    console.log(query);
+// export function fetchAlbumSearchResults(query = '') {
+//     console.log(query);
 
-    return mockAlbums
-}
+//     return mockAlbums
+// }
 
-async function makeRequest(query = "") {
+export async function fetchAlbumSearchResults(query = "") {
     const res = await window.fetch(
         "https://api.spotify.com/v1/search?type=album&q=" + query,
         {
@@ -17,8 +17,6 @@ async function makeRequest(query = "") {
             },
         }
     );
-    const data = (await res.json()) as {
-        albums: PagingObject<AlbumResponse>;
-    };
+    const data = (await res.json()) as AlbumSearchResponse
     return data;
 }
