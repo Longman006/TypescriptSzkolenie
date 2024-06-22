@@ -23,7 +23,7 @@ export async function fetchAlbumSearchResults(query = "") {
     const response = AlbumSearchResponseSchema.safeParse(data)
 
     if (response.data)
-        return response.data.albums.items
+        return response.data.albums.items as AlbumResponse[]
 
     const error = SpotifyErrorSchema.parse(data)
     

@@ -1,30 +1,51 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { mockAlbums } from "../core/mocks/mockAlbums";
 import { fetchAlbumSearchResults } from "../core/services/MusicAPI";
 import { Album, AlbumResponse } from "../core/types/Album";
 import { useFocus } from "./useFocus";
 import { useDebounce } from "./useDebounce";
 
-export default function SearchPage() {
-  const [query, setQuery] = useState("");
+function useFetchAlbums<T>(
+  query: string,
+  fetcher: (query?: string) => Promise<T>
+) {
+  const [data, setData] = useState<T | undefined>(undefined);
+  const [error, setError] = useState<unknown>(undefined);
+  const [isLoading, setIsLoading] = useState(false);
 
-  const [results, setResults] = useState<Album[]>([]);
-  const [message, setMessage] = useState("");
-
-  const search = (query = "", page = 1) => {
-    fetchAlbumSearchResults(query)
+  useEffect(() => {
+    setData(undefined);
+    setIsLoading(true);
+    setError(undefined);
+    fetcher(query)
       .then((res) => {
-        setResults(res);
+        setData(res);
       })
       .catch((error) => {
-        setMessage(error.message);
+        setError(error);
+      })
+      .finally(() => {
+        setIsLoading(false);
       });
-  };
+  }, [query]);
 
-  useDebounce(search, [query, 1]);
+  return { data, error, isLoading };
+}
+
+export default function SearchPage() {
+  const [query, setQuery] = useState("");
   
+  const [debouncedQuery, setdebouncedQuery] = useState(query);
+  useDebounce(setdebouncedQuery, [query]);
+
+  const {
+    data: results = [],
+    error,
+    isLoading,
+  } = useFetchAlbums(debouncedQuery, fetchAlbumSearchResults);
+
   const inputRef = useFocus<HTMLInputElement>([results]);
 
   return (
@@ -36,7 +57,7 @@ export default function SearchPage() {
             className="flex  md:px-6 lg:px-8 gap-1"
             onSubmit={(event) => {
               event.preventDefault();
-              search(query);
+              setdebouncedQuery(query);
             }}
           >
             <input
@@ -52,7 +73,13 @@ export default function SearchPage() {
             </button>
           </form>
 
-          {message && <p className="my-2 text-red-500">{message}</p>}
+          {isLoading && (
+            <p className="text-blue-600">Please wait - Loading...</p>
+          )}
+
+          {error instanceof Error && (
+            <p className="my-2 text-red-500">{error.message}</p>
+          )}
 
           <div className="flex flex-col gap-1 ">
             <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4">
