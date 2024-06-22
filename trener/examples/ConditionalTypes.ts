@@ -1,4 +1,6 @@
 
+export { }
+
 type Message = { message: string } | string // | number
 
 
@@ -33,4 +35,24 @@ type res2 = Flatten<string>
 type keysunion = 'id' | 'name' | never //  "id" | "name"
 
 
-type OnlyStrings<T> = ???
+type OnlyStrings<T> = T extends string ? T : never
+
+// type result4 = OnlyStrings<'id' | 'name' | never | never>
+type result4 = OnlyStrings<'id' | 'name' | 123 | { v: 'placki' }>
+
+
+type Playlist = {
+    id: string
+    name: string
+    public: boolean
+}
+
+type Pick<T, K extends keyof T> = {
+    [key in K]: T[K];
+};
+
+type KeysOfPlaylist = keyof Playlist
+
+type PlaylistWithoutId = {
+
+}
