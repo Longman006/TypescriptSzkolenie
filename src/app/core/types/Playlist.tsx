@@ -6,7 +6,17 @@ export interface Playlist {
   tracks?: Track[];
 }
 
-interface Track {}
+interface Track {
+  id: string;
+  name: string;
+  duration_ms: number;
+}
+
+
+type PartialPlaylist = {};
+type PartialTrack = {};
+
+
 
 // Mapped Type + Lookup
 
@@ -20,7 +30,8 @@ type PlaylistCopy = {
 // Mapped Types
 type KeysOfPlaylist = keyof Playlist; // 'id' | 'name' | ...
 
-type PartialPlaylist = {
+
+type PartialPlaylist2 = {
   // [klucz in KeysOfPlaylist]: "placki";
   // [klucz in KeysOfPlaylist]: klucz
   // [klucz in KeysOfPlaylist]: Playlist[klucz];
