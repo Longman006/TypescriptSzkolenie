@@ -108,3 +108,7 @@ function getProperty<T extends {}, K extends keyof T>(obj: T, key: K) {
 
 getProperty({ name: 'placki', age: 2 }, 'age')
 // getProperty({ name: 'placki', age: 2 }, 'ala ma kota')
+
+
+// ----
+
