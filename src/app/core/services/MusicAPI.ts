@@ -17,12 +17,18 @@ export async function fetchAlbumSearchResults(query = "") {
             },
         }
     );
-    const data = (await res.json()) as AlbumSearchResponse | SpofifyError
+    const data: AlbumSearchResponse | SpofifyError = (await res.json())
 
+    if (isSpofifyError(data)) throw new Error(data.error.message)
 
     return data.albums.items
 }
 
+
+// Function Type Guard
+function isSpofifyError(error: any): error is SpofifyError {
+    return error && 'error' in error && 'message' in error.error
+}
 
 export interface SpofifyError {
     error: {
