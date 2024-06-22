@@ -13,9 +13,9 @@ export default function SearchPage() {
   const inputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
-    console.log("after render");
-    document.getElementById("searchQueryInput")?.focus();
+    inputRef.current?.focus();
   }, [results]);
+
 
   const search = (query = "") => {
     fetchAlbumSearchResults(query)

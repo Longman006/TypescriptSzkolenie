@@ -36,4 +36,25 @@ callbackV = (p: Vector) => { }
 callbackV = (event) => { }
 
 callbackV = () => { }
-callbackP = () => { } 
+callbackP = () => { }
+
+
+interface User {
+    name: string
+}
+interface Moderator extends User {
+    isModerator: true
+}
+interface Admin extends Moderator {
+    isAdmin: true
+}
+
+type AsyncUser = Promise<User>
+type AsyncModerator = Promise<Moderator>
+type AsyncAdmin = Promise<Admin>
+
+function showUser(user: AsyncModerator) { }
+
+// showUser({} as AsyncUser)
+showUser({} as AsyncModerator)
+showUser({} as AsyncAdmin)
