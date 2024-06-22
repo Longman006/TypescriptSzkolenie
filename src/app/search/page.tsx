@@ -10,7 +10,7 @@ export default function SearchPage() {
   const [results, setResults] = useState<Album[]>([]);
   const [message, setMessage] = useState("");
 
-  const inputRef = useRef();
+  const inputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
     console.log("after render");
