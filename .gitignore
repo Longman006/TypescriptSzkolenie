@@ -4,6 +4,7 @@ uczestnik/*
 
 !uczestnik/.gitkeep
 
+.env
 
 # dependencies
 /node_modules

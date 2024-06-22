@@ -1,17 +1,17 @@
 "use client";
 
+import { useState } from "react";
 import { mockAlbums } from "../core/mocks/mockAlbums";
 import { fetchAlbumSearchResults } from "../core/services/MusicAPI";
 import { Album, AlbumResponse } from "../core/types/Album";
 
 export default function SearchPage() {
-
-    
-
-  const results = [] as Album[];
+  const [query, setQuery] = useState("");
+  const [results, setResults] = useState<Album[]>([]);
 
   const search = (query = "") => {
-    fetchAlbumSearchResults(query);
+    const resp = fetchAlbumSearchResults(query);
+    setResults(resp);
   };
 
   return (
@@ -19,11 +19,19 @@ export default function SearchPage() {
       <div>
         <h3 className="text-5xl leading-loose">Search</h3>
         <div>
-          <form className="flex  md:px-6 lg:px-8 gap-1" onSubmit={() => {}}>
+          <form
+            className="flex  md:px-6 lg:px-8 gap-1"
+            onSubmit={(event) => {
+              event.preventDefault();
+              search(query);
+            }}
+          >
             <input
               type="text"
               className=" flex-1"
               placeholder="Search albums"
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
             />
             <button type="submit" className="text-white px-5 bg-orange-600">
               Search
