@@ -19,6 +19,17 @@ type Partial<T> = {
 type PartialPlaylist = Partial<Playlist>;
 type PartialTrack = Partial<Track>;
 
+// Pick Utility Type Mapping
+type SomeKeys = "name" | "public";
+type PickFromPlaylistSomeKeys = {
+  [key in SomeKeys]: Playlist;
+};
+
+type Pick<T, K extends keyof T> = {
+  [key in K]: T[K];
+};
+type PlaylistPicked = Pick<Playlist, "name" | "id">;
+
 // type PartialTrack = {
 //   [key in keyof Track]: Track[key];
 // };
