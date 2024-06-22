@@ -1,27 +1,19 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { mockAlbums } from "../core/mocks/mockAlbums";
 import { fetchAlbumSearchResults } from "../core/services/MusicAPI";
 import { Album, AlbumResponse } from "../core/types/Album";
 import { useFocus } from "./useFocus";
+import { useDebounce } from "./useDebounce";
 
 export default function SearchPage() {
   const [query, setQuery] = useState("");
+
   const [results, setResults] = useState<Album[]>([]);
   const [message, setMessage] = useState("");
 
-  const inputRef = useFocus<HTMLInputElement>([results]);
-
-  useEffect(() => {
-    const handler = setTimeout(() => {
-      search(query);
-    }, 500);
-
-    return () => clearTimeout(handler);
-  }, [query]);
-
-  const search = (query = "") => {
+  const search = (query = "", page = 1) => {
     fetchAlbumSearchResults(query)
       .then((res) => {
         setResults(res);
@@ -30,6 +22,10 @@ export default function SearchPage() {
         setMessage(error.message);
       });
   };
+
+  useDebounce(search, [query, 1]);
+  
+  const inputRef = useFocus<HTMLInputElement>([results]);
 
   return (
     <div>
