@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { mockAlbums } from "../core/mocks/mockAlbums";
 import { fetchAlbumSearchResults } from "../core/services/MusicAPI";
 import { Album, AlbumResponse } from "../core/types/Album";
@@ -9,6 +9,8 @@ export default function SearchPage() {
   const [query, setQuery] = useState("");
   const [results, setResults] = useState<Album[]>([]);
   const [message, setMessage] = useState("");
+
+  const inputRef = useRef();
 
   useEffect(() => {
     console.log("after render");
@@ -39,7 +41,7 @@ export default function SearchPage() {
             }}
           >
             <input
-              id="searchQueryInput"
+              ref={inputRef}
               type="text"
               className=" flex-1"
               placeholder="Search albums"
